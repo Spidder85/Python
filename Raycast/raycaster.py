@@ -4,7 +4,7 @@ from ray import Ray
 
 class Raycaster:
     def __init__(self, player, map):
-        self.rays = []
+        self.rays: Ray = []
         self.player = player
         self.map = map
 
@@ -30,6 +30,10 @@ class Raycaster:
             draw_begin = int(WINDOW_HEIGHT / 2 - line_height / 2)
             draw_end = line_height
 
-            pygame.draw.rect(screen, (ray.color, ray.color, ray.color), (i*RES, draw_begin, RES, draw_end))
+            x = WINDOW_WIDTH + i * RES
+            pygame.draw.rect(
+                screen,
+                (ray.color, ray.color, ray.color),
+                (x, draw_begin, RES, draw_end))
 
             i += 1

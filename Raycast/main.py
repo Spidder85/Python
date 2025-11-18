@@ -4,7 +4,7 @@ from map import Map
 from player import Player
 from raycaster import Raycaster
 
-screen = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
+screen = pygame.display.set_mode((WINDOW_WIDTH*2, WINDOW_HEIGHT))
 
 map = Map()
 player = Player()
@@ -28,5 +28,11 @@ while True:
     player.render(screen)
 
     raycaster.render(screen)
+    # pygame.draw.line(
+    #     screen,
+    #     (50, 50, 50),
+    #     (WINDOW_WIDTH, 0),
+    #     (WINDOW_WIDTH, WINDOW_HEIGHT)
+    # )
 
     pygame.display.update()
