@@ -13,3 +13,5 @@ FOV = 60 * (math.pi / 180)
 
 RES = 4
 NUM_RAYS = WINDOW_WIDTH // RES
+
+LIGHT_LEVEL = 60
