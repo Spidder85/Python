@@ -13,7 +13,7 @@ class Player:
         self.moveSpeed = 2.5
         self.rotationSpeed = 2 * math.pi / 180
 
-    def update(self):
+    def update(self, map):
         keys = pygame.key.get_pressed()
 
         self.turnDirection = 0
@@ -32,6 +32,10 @@ class Player:
         self.rotationAngle += self.turnDirection * self.rotationSpeed
         self.x += math.cos(self.rotationAngle) * moveStep
         self.y += math.sin(self.rotationAngle) * moveStep
+
+        if map.has_wall_at(self.x, self.y):
+            self.x -= math.cos(self.rotationAngle) * moveStep
+            self.y -= math.sin(self.rotationAngle) * moveStep
 
     def render(self, screen):
         pygame.draw.circle(screen, (255, 0, 0), (int(self.x), int(self.y)), self.radius)

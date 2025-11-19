@@ -21,6 +21,15 @@ class Raycaster:
 
     def render(self, screen):
 
+        
+        step = WINDOW_HEIGHT / 2 / 128
+        for i in range(int(WINDOW_HEIGHT / 2), 0, -RES):
+            color = int(i * step)
+            pygame.draw.rect(
+                    screen,
+                    (color, color, color),
+                    (WINDOW_WIDTH, WINDOW_HEIGHT/2-i, WINDOW_WIDTH, 2*i))
+
         i = 0
         for ray in self.rays:
             ray.render(screen)

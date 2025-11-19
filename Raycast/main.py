@@ -19,7 +19,7 @@ while True:
             pygame.quit()
             exit()
     
-    player.update()
+    player.update(map)
     raycaster.castAllRays()
 
     screen.fill((0, 0, 0))
